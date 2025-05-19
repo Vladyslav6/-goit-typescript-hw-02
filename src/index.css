@@ -1,0 +1,32 @@
+/* src/index.css */
+
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+
+  background-image: url(https://img.freepik.com/free-vector/gradient-abstract-wireframe-background_23-2149009903.jpg?t=st=1744663260~exp=1744666860~hmac=96423dfce0443f293febddc1687c929409162a62ac8f512be0a95c542b3a9260&w=996);
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

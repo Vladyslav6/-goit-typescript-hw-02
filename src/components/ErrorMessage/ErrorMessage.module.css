@@ -1,0 +1,6 @@
+.colorError {
+  margin-top: 30px;
+  color: #fdfdfd;
+  display: flex;
+  justify-content: center;
+}

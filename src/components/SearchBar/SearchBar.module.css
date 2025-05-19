@@ -1,0 +1,7 @@
+.SearchBox {
+  display: flex;
+  justify-content: center;
+}
+.SeachSpan {
+  margin-right: 10px;
+}
