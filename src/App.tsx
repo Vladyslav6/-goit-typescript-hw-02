@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import SearchBar from "./components/SearchBar/SearchBar";
-import { fetchData } from "./services/api";
+import { fetchData, Results } from "./services/api";
 import { RingLoader } from "react-spinners";
 import Modal from "react-modal";
 import ImageModal from "./components/ImageModal/ImageModal";
@@ -11,7 +11,7 @@ import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 Modal.setAppElement(document.getElementById("root"));
 
 function App() {
-  const [photo, setPhoto] = useState([]);
+  const [photo, setPhoto] = useState<Results[]>([]);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
