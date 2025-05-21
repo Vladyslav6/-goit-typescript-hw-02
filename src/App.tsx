@@ -1,24 +1,28 @@
 import { useEffect, useState } from "react";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import SearchBar from "./components/SearchBar/SearchBar";
-import { fetchData, Results } from "./services/api";
+import { fetchData } from "./services/api";
 import { RingLoader } from "react-spinners";
 import Modal from "react-modal";
 import ImageModal from "./components/ImageModal/ImageModal";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
+import { Results } from "./services/api.types";
 
-Modal.setAppElement(document.getElementById("root"));
+const rootElement = document.getElementById("root");
+if (rootElement) {
+  Modal.setAppElement(rootElement);
+}
 
 function App() {
   const [photo, setPhoto] = useState<Results[]>([]);
-  const [query, setQuery] = useState("");
-  const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
-  const [totalPages, setTotalPages] = useState(1);
-  const [isError, setIsError] = useState(false);
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(null);
+  const [query, setQuery] = useState<string>("");
+  const [page, setPage] = useState<number>(1);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [totalPages, setTotalPages] = useState<number>(1);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+  const [currentImage, setCurrentImage] = useState<string | null>(null);
 
   function openModal() {
     setIsOpen(true);
@@ -26,7 +30,7 @@ function App() {
   function closeModal() {
     setIsOpen(false);
   }
-  const handleClick = (imgUrl) => {
+  const handleClick = (imgUrl: string) => {
     setCurrentImage(imgUrl);
     openModal();
   };
@@ -52,7 +56,7 @@ function App() {
       abortController.abort();
     };
   }, [query, page]);
-  const handleChangeQwery = (newQwery) => {
+  const handleChangeQwery = (newQwery: string) => {
     setQuery(newQwery);
     setPhoto([]);
     setPage(1);

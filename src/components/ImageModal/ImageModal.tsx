@@ -13,7 +13,11 @@ const customStyles = {
     backgroundColor: "rgba(0, 0, 0, 0.7)",
   },
 };
-Modal.setAppElement(document.getElementById("root"));
+
+const rootElement = document.getElementById("root");
+if (rootElement) {
+  Modal.setAppElement(rootElement);
+}
 const ImageModal = ({ isOpen, onRequestClose, currentImage }) => {
   return (
     <Modal style={customStyles} isOpen={isOpen} onRequestClose={onRequestClose}>

@@ -1,6 +1,13 @@
 import React from "react";
 import css from "./ImageCard.module.css";
-const ImageCard = ({ handleClick, sendItem }) => {
+import { Photo } from "../ImageGallery/ImageGallery.types";
+
+interface ImageCardProps {
+  sendItem: Photo;
+  handleClick: (url: string) => void;
+}
+
+const ImageCard: React.FC<ImageCardProps> = ({ handleClick, sendItem }) => {
   return (
     <div className={css.listCard}>
       <img
@@ -8,6 +15,7 @@ const ImageCard = ({ handleClick, sendItem }) => {
         src={sendItem.urls.small}
         width={400}
         height={400}
+        alt="image"
       />
     </div>
   );
