@@ -1,5 +1,11 @@
 import css from "./LoadMoreBtn.module.css";
-const LoadMoreBtn = ({ setPage, totalPages, page }) => {
+import { LoadMoreBtnProps } from "./LoadMoreBtn.types";
+
+const LoadMoreBtn: React.FC<LoadMoreBtnProps> = ({
+  setPage,
+  totalPages,
+  page,
+}) => {
   return (
     <div>
       <button className={css.loadMoreBtn} onClick={() => setPage(page + 1)}>
@@ -10,4 +16,5 @@ const LoadMoreBtn = ({ setPage, totalPages, page }) => {
     </div>
   );
 };
+
 export default LoadMoreBtn;
